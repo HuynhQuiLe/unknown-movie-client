@@ -1,0 +1,28 @@
+.slider {
+  /* margin-top: 10px; */
+}
+.slider .slider-item {
+  width: 100vw;
+  max-width: 1000px;
+  overflow: hidden;
+  opacity: 0.3;
+}
+
+.slider .slider-item img {
+  width: 100%;
+  margin: 0 10px;
+}
+
+.slider button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  background-color: rgba(128, 128, 128, 0.4);
+  background-image: none;
+  transition: all 0.5s;
+}
+
+.slider button:hover {
+  background-color: black;
+}
