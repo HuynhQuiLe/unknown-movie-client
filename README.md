@@ -101,7 +101,7 @@ Dự án được chia làm 2 phần chính: Front end và Back end. Front end �
 
 1. BACK END <br/>
    1.1 [Source Code](https://github.com/HuynhQuiLe/unknown-movie-API.git) <br/>
-   1.2 [Deployment]() - Đanng cập nhật <br/>
+   1.2 [Deployment]() - Đang cập nhật <br/>
 
 2. FRONT END <br/>
    2.1 TRANG ADMIN <br/>
@@ -137,7 +137,7 @@ _Như đã được đề cập từ trước, Dự án này đựợc em viết
   git clone https://github.com/HuynhQuiLe/unknown-movie-client.git
 ```
 
-5. Vào thư mục `service` vào file `configService.js` và thay đổi tất cả url có domain chính là:` http://localhost:6868/`
+5. Vào thư mục `service` vào file `configService.js` và thay đổi tất cả url có domain chính thành:` http://localhost:6868/`
 
    ```js
    export const USER_BASE_URL = "http://localhost:6868/users";
@@ -156,7 +156,7 @@ _Như đã được đề cập từ trước, Dự án này đựợc em viết
   git clone https://github.com/HuynhQuiLe/unknown-movie-admin.git
 ```
 
-8. Vào thư mục `service` vào file `configService.js` và thay đổi tất cả url có domain chính là:` http://localhost:6868/`
+8. Vào thư mục `service` vào file `configService.js` và thay đổi tất cả url có domain chính thành:` http://localhost:6868/`
 
    ```js
    export const CAROUSEL_BASE_URL = "http://localhost:6868/carousels";
