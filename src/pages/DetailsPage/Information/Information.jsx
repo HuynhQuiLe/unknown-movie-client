@@ -6,7 +6,7 @@ const Information = ({ movie }) => {
   return (
     <div className=" flex flex-col items-start justify-center w-[100%]">
       <NameAndRating movie={movie} />
-      <TabDetails movie={movie} />
+      <TabDetails movie={movie} className=" text-white font-bold" />
     </div>
   );
 };
