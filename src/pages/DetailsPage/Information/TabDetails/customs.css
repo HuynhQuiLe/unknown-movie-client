@@ -400,3 +400,8 @@ footer a.text-blue {
   .ant-tabs-nav-operations-hidden {
   display: none !important;
 }
+
+:where(.css-1vr7spz).ant-tabs > .ant-tabs-nav .ant-tabs-nav-operations,
+:where(.css-1vr7spz).ant-tabs > div > .ant-tabs-nav .ant-tabs-nav-operations {
+  display: none;
+}
