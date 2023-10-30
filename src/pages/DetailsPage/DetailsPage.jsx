@@ -22,7 +22,10 @@ const DetailsPage = () => {
   }
   return (
     <>
-      <div className=" max-w-[1440px] h-[90vh] text-white flex items-center m-auto">
+      <div
+        className=" max-w-[1440px] h-[90vh] text-white flex items-center m-auto"
+        id="detail"
+      >
         <div className="h-full flex items-center mr-[30px]">
           <Poster hinhChinh={movie?.hinhChinh} />
         </div>

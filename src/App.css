@@ -357,3 +357,7 @@ footer a.text-blue {
   width: 100%;
   justify-content: flex-start;
 }
+
+#detail :where(.css-1vr7spz).ant-tabs .ant-tabs-tab {
+  color: white;
+}
