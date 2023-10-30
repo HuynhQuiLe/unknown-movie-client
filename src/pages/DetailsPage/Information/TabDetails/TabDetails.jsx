@@ -37,7 +37,14 @@ const TabDetails = ({ movie }) => {
       children: <Comment maPhim={movie?.maPhim} />,
     },
   ];
-  return <Tabs defaultActiveKey="1" items={items} onChange={onChange} />;
+  return (
+    <Tabs
+      defaultActiveKey="1"
+      items={items}
+      onChange={onChange}
+      id="tab-detail-custom"
+    />
+  );
 };
 
 export default TabDetails;
