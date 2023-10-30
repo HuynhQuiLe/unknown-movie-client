@@ -5,6 +5,7 @@ import Trailer from "./Trailer/Trailer";
 import OtherFilms from "./OtherFilms/OtherFilms";
 import Comment from "./Comment/Comment";
 import Rate from "./Rate/Rate";
+import "./customs.css";
 
 const TabDetails = ({ movie }) => {
   const onChange = (key) => {
