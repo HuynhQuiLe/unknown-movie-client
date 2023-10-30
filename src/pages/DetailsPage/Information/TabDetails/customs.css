@@ -398,5 +398,5 @@ footer a.text-blue {
   > div
   > .ant-tabs-nav
   .ant-tabs-nav-operations-hidden {
-  display: none;
+  display: none !important;
 }
