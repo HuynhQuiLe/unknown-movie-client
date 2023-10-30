@@ -358,10 +358,6 @@ footer a.text-blue {
   justify-content: flex-start;
 }
 
-:where(.css-dev-only-do-not-override-1vr7spz).ant-tabs .ant-tabs-tab {
-  color: white !important;
-}
-
 :where(.css-1vr7spz).ant-tabs > .ant-tabs-nav .ant-tabs-nav-list,
 :where(.css-1vr7spz).ant-tabs > div > .ant-tabs-nav .ant-tabs-nav-list {
   position: relative;
@@ -369,4 +365,13 @@ footer a.text-blue {
   transition: opacity 0.3s;
   width: 100%;
   justify-content: space-between;
+}
+
+:where(.css-1vr7spz).ant-tabs .ant-tabs-tab {
+  color: white;
+  font-weight: bold;
+}
+
+:where(.css-1vr7spz).ant-tabs .ant-tabs-tab:hover {
+  color: #fca311;
 }
