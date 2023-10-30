@@ -389,6 +389,6 @@ footer a.text-blue {
   color: #fca311;
 }
 
-#tab-detail-custom {
+:where(.css-1vr7spz).ant-tabs {
   width: 100%;
 }
