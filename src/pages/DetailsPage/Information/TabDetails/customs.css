@@ -415,3 +415,11 @@ footer a.text-blue {
 :where(.css-1vr7spz).ant-tabs > div > .ant-tabs-nav .ant-tabs-nav-operations {
   display: none !important;
 }
+
+:where(.css-1vr7spz).ant-modal
+  .ant-modal-footer
+  .ant-btn
+  + .ant-btn:not(.ant-dropdown-trigger) {
+  background-color: #fca311 !important;
+  color: black;
+}
