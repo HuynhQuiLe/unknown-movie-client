@@ -359,5 +359,5 @@ footer a.text-blue {
 }
 
 :where(.css-dev-only-do-not-override-1vr7spz).ant-tabs .ant-tabs-tab {
-  color: white;
+  color: white !important;
 }

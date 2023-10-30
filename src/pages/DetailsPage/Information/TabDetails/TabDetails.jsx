@@ -43,6 +43,7 @@ const TabDetails = ({ movie }) => {
       items={items}
       onChange={onChange}
       id="tab-detail-custom"
+      className=" text-white font-bold"
     />
   );
 };
