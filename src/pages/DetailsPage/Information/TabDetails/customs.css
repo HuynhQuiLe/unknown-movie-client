@@ -388,3 +388,7 @@ footer a.text-blue {
   .ant-tabs-tab:hover {
   color: #fca311;
 }
+
+#tab-detail-custom {
+  width: 100%;
+}
