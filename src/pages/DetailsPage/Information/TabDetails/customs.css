@@ -389,6 +389,16 @@ footer a.text-blue {
   color: #fca311;
 }
 
+:where(.css-1vr7spz).ant-tabs
+  .ant-tabs-tab.ant-tabs-tab-active
+  .ant-tabs-tab-btn {
+  color: #fca311;
+}
+
+:where(.css-1vr7spz).ant-tabs .ant-tabs-ink-bar {
+  background: #fca311;
+}
+
 :where(.css-1vr7spz).ant-tabs {
   width: 100%;
 }
