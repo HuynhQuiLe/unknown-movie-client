@@ -392,11 +392,11 @@ footer a.text-blue {
 :where(.css-1vr7spz).ant-tabs
   .ant-tabs-tab.ant-tabs-tab-active
   .ant-tabs-tab-btn {
-  color: #fca311;
+  color: #fca311 !important;
 }
 
 :where(.css-1vr7spz).ant-tabs .ant-tabs-ink-bar {
-  background: #fca311;
+  background: #fca311 !important;
 }
 
 :where(.css-1vr7spz).ant-tabs {
