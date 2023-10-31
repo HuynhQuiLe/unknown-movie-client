@@ -141,7 +141,7 @@ _Như đã được đề cập từ trước, Dự án này đựợc em viết
   git clone https://github.com/HuynhQuiLe/unknown-movie-client.git
 ```
 
-5. Vào thư mục `service` vào file `configService.js` và comment dòng 2; bỏ comment dòng 1 thay đổi tất cả url có domain chính thành:` http://localhost:6868/`
+5. Vào thư mục `service` vào file `configService.js` và comment dòng 2; bỏ comment dòng 1 giống như sau:
 
    ```js
    const BASE_URL = "http://localhost:6868/";
