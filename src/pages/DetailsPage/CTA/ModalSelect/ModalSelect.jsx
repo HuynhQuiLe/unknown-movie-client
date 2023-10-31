@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Modal, Select } from "antd";
+import { Modal, Select, message } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllTheaters } from "../../../../redux/action/theater/getAllTheatersAction";
@@ -33,9 +33,6 @@ const ModalSelect = ({ isModalOpen, setIsModalOpen }) => {
   const navigate = useNavigate();
   const handleOk = () => {
     if (maHeThongRap && maCumRap) {
-      navigate("/movies/booking");
-      setIsModalOpen(false);
-
       // set defaul value for ngay
       let ngay = "";
       let gio = "";
@@ -54,6 +51,11 @@ const ModalSelect = ({ isModalOpen, setIsModalOpen }) => {
           });
         }
       });
+      if (ngay === "" || gio === "") {
+        return message.error("Rạp không có suất chiếu phim này. Mời chọn lại!");
+      }
+      navigate("/movies/booking");
+      setIsModalOpen(false);
 
       dispatch({
         type: SET_NGAY,

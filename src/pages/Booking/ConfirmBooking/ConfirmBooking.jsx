@@ -40,6 +40,7 @@ const ConfirmBooking = () => {
       });
     });
 
+    // console.log(seatMap);
     dispatch(bookSeat(seatMap, maSuatChieu)).then((result) => {
       if (result) {
         setOpen(true);

@@ -14,30 +14,16 @@ const TimeAndLegend = () => {
   const { heThongRap, cumRap, ngay, gio, phim } = useSelector(
     (state) => state.bookingReducer
   );
+
   const { moviesByTheater } = useSelector(
     (state) => state.getMoviesByTheaterReducer
   );
 
   const dispatch = useDispatch();
 
-  // const [startDate, setStartDate] = useState(new Date());
-
-  const now = moment(
-    `${new Date().getHours()}: ${new Date().getMinutes()}`,
-    "h:mm"
-  );
-
-  // useEffect(() => {
-  //   dispatch({
-  //     type: SET_NGAY,
-  //     payload: new Date(),
-  //   });
-
-  //   dispatch({
-  //     type: SET_GIO,
-  //     payload: document.querySelector("#gio").value,
-  //   });
-  // }, []);
+  const handleChangeDataSeatMap = () => {
+    window.location.href = "/movies/booking";
+  };
 
   return (
     <div className="flex justify-between items-center">
@@ -46,18 +32,6 @@ const TimeAndLegend = () => {
           <div className="mr-2">
             <SlCalender />
           </div>
-          {/* <DatePicker
-            selected={startDate}
-            dateFormat="dd/MM/yyyy"
-            placeholderText="dd-MM-yyyy"
-            onChange={(date) => {
-              setStartDate(date);
-              dispatch({
-                type: SET_NGAY,
-                payload: date,
-              });
-            }}
-          /> */}
 
           <select
             name="ngay"
@@ -69,6 +43,9 @@ const TimeAndLegend = () => {
                 type: SET_NGAY,
                 payload: e.target.value,
               });
+              setTimeout(() => {
+                handleChangeDataSeatMap();
+              }, 100);
             }}
           >
             {moviesByTheater.map((HTRap) => {
@@ -106,6 +83,7 @@ const TimeAndLegend = () => {
                 type: SET_GIO,
                 payload: e.target.value,
               });
+              handleChangeDataSeatMap();
             }}
           >
             {moviesByTheater.map((HTRap) => {

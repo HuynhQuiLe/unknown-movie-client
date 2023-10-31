@@ -13,8 +13,8 @@ export const bookSeat = (seatMap, maSuatChieu) => {
       type: BOOK_SEAT_REQUEST,
     });
     try {
-      console.log(seatMap);
       const { data } = await bookSeatAPI(seatMap, maSuatChieu);
+      console.log(data.booked);
       dispatch({
         type: BOOK_SEAT_SUCCESS,
         payload: data.message,
