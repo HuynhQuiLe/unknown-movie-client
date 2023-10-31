@@ -15,13 +15,13 @@ const SubMenu = () => {
 
   return (
     <div
-      className={`fixed bg-black ${
+      className={`fixed bg-black border-b-[1px] border-[#fca311] max-h-[400px] overflow-hidden ${
         pathname.includes("movies") ? "top-[62px]" : "top-[50px]"
       }  z-10  right-0 py-[10px] px-[20px]  max-w-[1440px] h-[50vh] w-[100vw] m-auto pt-[50px] cursor-default`}
     >
       <div className="container max-w-[1024px] m-auto">
         <div className="flex justify-between">
-          <div className="text-white text-center">
+          <div className="text-white text-center max-w-[200px]">
             <div>
               <img
                 src={user.hinhAnh}
@@ -61,7 +61,171 @@ const SubMenu = () => {
             </ul>
           </div>
 
-          <div>
+          <div className="text-white w-full px-5 overflow-hidden">
+            <p className="text-[#fca311] font-bold mb-2">VÉ CỦA TÔI</p>
+            <div className="w-full px-5 max-h-[300px] overflow-scroll">
+              <table className="table w-full font-light max-h-[400px]">
+                <thead>
+                  <tr className="flex font-light text-[14px] mb-5">
+                    <th className="block font-bold w-[50px]">STT</th>
+                    <th className="block font-bold w-[300px]">Phim</th>
+                    <th className="block font-bold w-[200px]">Rạp</th>
+                    <th className="block font-bold w-[150px]">Suất chiếu</th>
+                    <th className="block font-bold w-[100px]">Ghế</th>
+                    <th className="block font-bold w-[100px]">Trạng thái</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
+                    <td className="block w-[50px]">1</td>
+                    <td className="block w-[300px]">ABCDDFFD</td>
+                    <td className="block w-[200px]">ABCDDFFD</td>
+                    <td className="block w-[150px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">
+                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
+                        Đã xem
+                      </span>
+                    </td>
+                  </tr>
+                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
+                    <td className="block w-[50px]">1</td>
+                    <td className="block w-[300px]">ABCDDFFD</td>
+                    <td className="block w-[200px]">ABCDDFFD</td>
+                    <td className="block w-[150px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">
+                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
+                        Đã xem
+                      </span>
+                    </td>
+                  </tr>
+                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
+                    <td className="block w-[50px]">1</td>
+                    <td className="block w-[300px]">ABCDDFFD</td>
+                    <td className="block w-[200px]">ABCDDFFD</td>
+                    <td className="block w-[150px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">
+                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
+                        Đã xem
+                      </span>
+                    </td>
+                  </tr>{" "}
+                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
+                    <td className="block w-[50px]">1</td>
+                    <td className="block w-[300px]">ABCDDFFD</td>
+                    <td className="block w-[200px]">ABCDDFFD</td>
+                    <td className="block w-[150px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">
+                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
+                        Đã xem
+                      </span>
+                    </td>
+                  </tr>{" "}
+                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
+                    <td className="block w-[50px]">1</td>
+                    <td className="block w-[300px]">ABCDDFFD</td>
+                    <td className="block w-[200px]">ABCDDFFD</td>
+                    <td className="block w-[150px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">
+                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
+                        Đã xem
+                      </span>
+                    </td>
+                  </tr>{" "}
+                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
+                    <td className="block w-[50px]">1</td>
+                    <td className="block w-[300px]">ABCDDFFD</td>
+                    <td className="block w-[200px]">ABCDDFFD</td>
+                    <td className="block w-[150px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">
+                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
+                        Đã xem
+                      </span>
+                    </td>
+                  </tr>{" "}
+                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
+                    <td className="block w-[50px]">1</td>
+                    <td className="block w-[300px]">ABCDDFFD</td>
+                    <td className="block w-[200px]">ABCDDFFD</td>
+                    <td className="block w-[150px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">
+                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
+                        Đã xem
+                      </span>
+                    </td>
+                  </tr>{" "}
+                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
+                    <td className="block w-[50px]">1</td>
+                    <td className="block w-[300px]">ABCDDFFD</td>
+                    <td className="block w-[200px]">ABCDDFFD</td>
+                    <td className="block w-[150px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">
+                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
+                        Đã xem
+                      </span>
+                    </td>
+                  </tr>{" "}
+                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
+                    <td className="block w-[50px]">1</td>
+                    <td className="block w-[300px]">ABCDDFFD</td>
+                    <td className="block w-[200px]">ABCDDFFD</td>
+                    <td className="block w-[150px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">
+                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
+                        Đã xem
+                      </span>
+                    </td>
+                  </tr>{" "}
+                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
+                    <td className="block w-[50px]">1</td>
+                    <td className="block w-[300px]">ABCDDFFD</td>
+                    <td className="block w-[200px]">ABCDDFFD</td>
+                    <td className="block w-[150px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">
+                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
+                        Đã xem
+                      </span>
+                    </td>
+                  </tr>{" "}
+                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
+                    <td className="block w-[50px]">1</td>
+                    <td className="block w-[300px]">ABCDDFFD</td>
+                    <td className="block w-[200px]">ABCDDFFD</td>
+                    <td className="block w-[150px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">
+                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
+                        Đã xem
+                      </span>
+                    </td>
+                  </tr>{" "}
+                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
+                    <td className="block w-[50px]">1</td>
+                    <td className="block w-[300px]">ABCDDFFD</td>
+                    <td className="block w-[200px]">ABCDDFFD</td>
+                    <td className="block w-[150px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">ABCDDFFD</td>
+                    <td className="block w-[100px]">
+                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
+                        Đã xem
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="max-w-[100px]">
             <div className="  flex items-center relative">
               <video
                 src="/video/refined-kai.mp4"
