@@ -101,7 +101,7 @@ Dự án được chia làm 2 phần chính: Front end và Back end. Front end �
 
 1. BACK END <br/>
    1.1 [Source Code](https://github.com/HuynhQuiLe/unknown-movie-API.git) <br/>
-   1.2 [Deployment]() - Đang cập nhật <br/>
+   1.2 [Deployment](https://unknown-movie.adaptable.app) <br/>
 
 2. FRONT END <br/>
    2.1 TRANG ADMIN <br/>
