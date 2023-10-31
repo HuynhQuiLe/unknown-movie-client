@@ -107,6 +107,10 @@ Dự án được chia làm 2 phần chính: Front end và Back end. Front end �
    2.1 TRANG ADMIN <br/>
    2.1.1 [Source Code](https://github.com/HuynhQuiLe/unknown-movie-admin) <br/>
    2.1.2 [Deployment](https://unknown-movie-admin.vercel.app/)<br/>
+   2.1.3 TÀI KHOẢN ADMIN: <br/>
+   Tên đăng nhập: chris99 <br/>
+   Mật khẩu: 123 <br/>
+   <br/>
    2.2 TRANG CLIENT <br/>
    2.2.1 [Source Code](https://github.com/HuynhQuiLe/unknown-movie-client) <br/>
    2.2.2 [Deployment](https://unknown-movie-client.vercel.app/) <br/>
