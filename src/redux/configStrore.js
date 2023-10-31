@@ -14,6 +14,7 @@ import { getAllCumRapsReducer } from "./reducer/branch/getAllCumRapsReducer";
 import { bookingReducer } from "./reducer/booking/bookingReducer";
 import { registerReducer } from "./reducer/user/registerReducer";
 import { getLayoutGheByMaSuatChieuReducer } from "./reducer/seat/getLayoutGheByMaSuatChieuReducer";
+import { getAllTicketsByUserReducer } from "./reducer/ticket/getAllTicketsByUserReducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const enhancer = composeEnhancers(applyMiddleware(thunk));
@@ -32,6 +33,7 @@ const rootReducer = combineReducers({
   bookingReducer,
   registerReducer,
   getLayoutGheByMaSuatChieuReducer,
+  getAllTicketsByUserReducer,
 });
 
 const store = createStore(rootReducer, enhancer);

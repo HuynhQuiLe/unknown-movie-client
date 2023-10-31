@@ -8,6 +8,7 @@ import {
   userLocalStorage,
 } from "../../../service/localService";
 import {
+  RESET_SELECTED_SEAT,
   SELECTED_SEAT,
   SET_CUM_RAP,
   SET_GIO,
@@ -69,6 +70,9 @@ export const bookingReducer = (state = initialState, { type, payload }) => {
       }
 
       return { ...state, selectedSeats: clone };
+
+    case RESET_SELECTED_SEAT:
+      return { ...state, selectedSeats: [] };
 
     default:
       return { ...state };

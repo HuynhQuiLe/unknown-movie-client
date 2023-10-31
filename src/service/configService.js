@@ -17,6 +17,8 @@ export const SEAT_BASE_URL = "http://localhost:6868/seats";
 
 export const TINH_ANH_BASE_URL = "http://localhost:6868/users/tinh-anh";
 
+export const TICKET_BASE_URL = "http://localhost:6868/tickets";
+
 export const THEATER_BASE_URL1 =
   "https://movienew.cybersoft.edu.vn/api/QuanLyRap";
 

@@ -1,16 +1,125 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/action/user/logoutAction";
 import { useLocation } from "react-router-dom";
+import { getAllTicketsByUser } from "../../redux/action/ticket/getAllTicketsByUserAction";
+import {
+  userLocalStorage,
+  moviesByTheaterLocalStorage,
+} from "../../service/localService";
 
 const SubMenu = () => {
   const { pathname } = useLocation();
+  const { tickets } = useSelector((state) => state.getAllTicketsByUserReducer);
+  const bigData = moviesByTheaterLocalStorage.get();
 
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.loginReducer);
 
   const logoutAccount = () => {
     dispatch(logout());
+  };
+
+  useEffect(() => {
+    dispatch(getAllTicketsByUser(userLocalStorage.get()._id));
+  }, [dispatch]);
+
+  const renderListTicket = () => {
+    if (!tickets.length) {
+      return (
+        <tr className="flex justify-between font-light text-[14px] text-center mb-3">
+          <td className="block text-left w-full" colSpan={6}>
+            Bạn chưa đặt vé xem phim nào.
+          </td>
+        </tr>
+      );
+    } else {
+      return tickets.map((item, index) => {
+        let logo = "";
+        let tenCR = "";
+        let tenfilm = "";
+        let posterPhim = "";
+        bigData.map((itm) => {
+          if (itm.maHeThongRap === item.maHeThongRap) {
+            logo = itm.logo;
+            itm.danhSachCumRap.map((it) => {
+              if (it.maCumRap === item.maCumRap) {
+                tenCR = it.tenCumRap;
+                it.danhSachPhim.map((phim) => {
+                  if (phim.maPhim === item.maPhim) {
+                    tenfilm = phim.tenPhim;
+                    posterPhim = phim.hinhChinh;
+                  }
+                });
+              }
+            });
+          }
+        });
+        return (
+          <tr
+            className="flex justify-between font-light text-[14px] text-center mb-3"
+            key={index}
+          >
+            <td className="block w-[50px]">{index + 1}</td>
+            <td className=" w-[200px] flex text-center">
+              <img
+                src={posterPhim}
+                className="w-[50px] h-[75px] object-cover mr-2"
+                alt="logo"
+              />
+              <p
+                className="max-w-[140px]"
+                style={{
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                }}
+              >
+                {" "}
+                {tenfilm}
+              </p>
+            </td>
+            <td className=" w-[200px] flex">
+              <img src={logo} className="w-[25px] h-[25px] mr-2" alt="logo" />
+              <p
+                className="max-w-[170px]"
+                style={{
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                }}
+              >
+                {tenCR}
+              </p>
+            </td>
+            <td className="block w-[150px]">
+              {item.ngay} - {item.gio}
+            </td>
+            <td
+              className="block w-[100px]"
+              style={{
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
+              {item.ghe.map((item, idx) => {
+                return (
+                  <span key={idx}>
+                    {idx === 0 ? item.soGhe : `, ${item.soGhe}`}
+                  </span>
+                );
+              })}
+            </td>
+            <td className="block w-[100px]">
+              <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
+                Đã xem
+              </span>
+            </td>
+          </tr>
+        );
+      });
+    }
   };
 
   return (
@@ -68,159 +177,14 @@ const SubMenu = () => {
                 <thead>
                   <tr className="flex font-light text-[14px] mb-5">
                     <th className="block font-bold w-[50px]">STT</th>
-                    <th className="block font-bold w-[300px]">Phim</th>
+                    <th className="block font-bold w-[200px]">Phim</th>
                     <th className="block font-bold w-[200px]">Rạp</th>
                     <th className="block font-bold w-[150px]">Suất chiếu</th>
                     <th className="block font-bold w-[100px]">Ghế</th>
                     <th className="block font-bold w-[100px]">Trạng thái</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
-                    <td className="block w-[50px]">1</td>
-                    <td className="block w-[300px]">ABCDDFFD</td>
-                    <td className="block w-[200px]">ABCDDFFD</td>
-                    <td className="block w-[150px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">
-                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
-                        Đã xem
-                      </span>
-                    </td>
-                  </tr>
-                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
-                    <td className="block w-[50px]">1</td>
-                    <td className="block w-[300px]">ABCDDFFD</td>
-                    <td className="block w-[200px]">ABCDDFFD</td>
-                    <td className="block w-[150px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">
-                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
-                        Đã xem
-                      </span>
-                    </td>
-                  </tr>
-                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
-                    <td className="block w-[50px]">1</td>
-                    <td className="block w-[300px]">ABCDDFFD</td>
-                    <td className="block w-[200px]">ABCDDFFD</td>
-                    <td className="block w-[150px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">
-                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
-                        Đã xem
-                      </span>
-                    </td>
-                  </tr>{" "}
-                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
-                    <td className="block w-[50px]">1</td>
-                    <td className="block w-[300px]">ABCDDFFD</td>
-                    <td className="block w-[200px]">ABCDDFFD</td>
-                    <td className="block w-[150px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">
-                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
-                        Đã xem
-                      </span>
-                    </td>
-                  </tr>{" "}
-                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
-                    <td className="block w-[50px]">1</td>
-                    <td className="block w-[300px]">ABCDDFFD</td>
-                    <td className="block w-[200px]">ABCDDFFD</td>
-                    <td className="block w-[150px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">
-                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
-                        Đã xem
-                      </span>
-                    </td>
-                  </tr>{" "}
-                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
-                    <td className="block w-[50px]">1</td>
-                    <td className="block w-[300px]">ABCDDFFD</td>
-                    <td className="block w-[200px]">ABCDDFFD</td>
-                    <td className="block w-[150px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">
-                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
-                        Đã xem
-                      </span>
-                    </td>
-                  </tr>{" "}
-                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
-                    <td className="block w-[50px]">1</td>
-                    <td className="block w-[300px]">ABCDDFFD</td>
-                    <td className="block w-[200px]">ABCDDFFD</td>
-                    <td className="block w-[150px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">
-                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
-                        Đã xem
-                      </span>
-                    </td>
-                  </tr>{" "}
-                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
-                    <td className="block w-[50px]">1</td>
-                    <td className="block w-[300px]">ABCDDFFD</td>
-                    <td className="block w-[200px]">ABCDDFFD</td>
-                    <td className="block w-[150px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">
-                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
-                        Đã xem
-                      </span>
-                    </td>
-                  </tr>{" "}
-                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
-                    <td className="block w-[50px]">1</td>
-                    <td className="block w-[300px]">ABCDDFFD</td>
-                    <td className="block w-[200px]">ABCDDFFD</td>
-                    <td className="block w-[150px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">
-                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
-                        Đã xem
-                      </span>
-                    </td>
-                  </tr>{" "}
-                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
-                    <td className="block w-[50px]">1</td>
-                    <td className="block w-[300px]">ABCDDFFD</td>
-                    <td className="block w-[200px]">ABCDDFFD</td>
-                    <td className="block w-[150px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">
-                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
-                        Đã xem
-                      </span>
-                    </td>
-                  </tr>{" "}
-                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
-                    <td className="block w-[50px]">1</td>
-                    <td className="block w-[300px]">ABCDDFFD</td>
-                    <td className="block w-[200px]">ABCDDFFD</td>
-                    <td className="block w-[150px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">
-                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
-                        Đã xem
-                      </span>
-                    </td>
-                  </tr>{" "}
-                  <tr className="flex justify-between font-light text-[14px] text-center mb-3">
-                    <td className="block w-[50px]">1</td>
-                    <td className="block w-[300px]">ABCDDFFD</td>
-                    <td className="block w-[200px]">ABCDDFFD</td>
-                    <td className="block w-[150px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">ABCDDFFD</td>
-                    <td className="block w-[100px]">
-                      <span className="px-[10px] py-[3px] rounded-[3px] border border-red-600 text-red-600">
-                        Đã xem
-                      </span>
-                    </td>
-                  </tr>
-                </tbody>
+                <tbody>{tickets && renderListTicket()}</tbody>
               </table>
             </div>
           </div>

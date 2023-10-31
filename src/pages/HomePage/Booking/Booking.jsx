@@ -41,6 +41,14 @@ const Booking = () => {
     dispatch({ type: SET_NGAY, payload: ngay });
     dispatch({ type: SET_GIO, payload: gio });
     // window.location.href = "/movies/booking";
+    const index = window.location.href.indexOf("#");
+    if (window.location.href.indexOf("#") !== -1) {
+      const cut = window.location.href.slice(index);
+      window.open(
+        `${window.location.href.replace(cut, "")}movies/booking`,
+        "_blank"
+      );
+    }
     window.open(`${window.location.href}movies/booking`, "_blank");
   };
 
