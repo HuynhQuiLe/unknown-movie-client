@@ -1,4 +1,5 @@
 import { userLocalStorage } from "../../../service/localService";
+import { GET_USER_BY_ID_SUCCESS } from "../../constant/user/getUserByIDConstants";
 import {
   LOGIN_FAILURE,
   LOGIN_REQUEST,
@@ -23,6 +24,10 @@ export const loginReducer = (state = initialState, { type, payload }) => {
 
     case LOGIN_FAILURE:
       return { ...state, isLoading: false, error: payload };
+    case GET_USER_BY_ID_SUCCESS:
+      userLocalStorage.set(payload);
+      return { ...state, user: payload, isLoading: false };
+
     default:
       return { ...state };
   }

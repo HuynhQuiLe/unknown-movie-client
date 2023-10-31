@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Ticket from "./Ticket/Ticket";
 import { bookSeat } from "../../../redux/action/seat/bookSeatAction";
+import { adjustTinhAnh } from "../../../redux/action/tinhAnh/adjustTinhAnhAction";
 
 const ConfirmBooking = () => {
   const dispatch = useDispatch();
@@ -44,6 +45,8 @@ const ConfirmBooking = () => {
     dispatch(bookSeat(seatMap, maSuatChieu)).then((result) => {
       if (result) {
         setOpen(true);
+        //handle minus TINH ANH
+        dispatch(adjustTinhAnh(selectedSeats.length * 199));
       }
     });
   };
