@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SELECTED_SEAT } from "../../../../redux/constant/booking/bookingConstants";
+import { userLocalStorage } from "../../../../service/localService";
+import { message } from "antd";
 
 const Seat = ({ ghe }) => {
   const { selectedSeats } = useSelector((state) => state.bookingReducer);
@@ -26,6 +28,11 @@ const Seat = ({ ghe }) => {
   }
 
   const select = (ghe) => {
+    const user = userLocalStorage.get();
+    if (!user) {
+      message.error("Vui lòng đăng nhập để sử dụng dịch vụ.!");
+      return;
+    }
     if (!ghe.daDat && ghe.note === "ghe") {
       dispatch({ type: SELECTED_SEAT, payload: ghe });
     }

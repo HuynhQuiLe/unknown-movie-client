@@ -5,7 +5,6 @@ import { bookSeat } from "../../../redux/action/seat/bookSeatAction";
 import { adjustTinhAnh } from "../../../redux/action/tinhAnh/adjustTinhAnhAction";
 import { userLocalStorage } from "../../../service/localService";
 import { createTicket } from "../../../redux/action/ticket/createTicketAction";
-import { RESET_SELECTED_SEAT } from "../../../redux/constant/booking/bookingConstants";
 
 const ConfirmBooking = () => {
   const dispatch = useDispatch();
@@ -61,7 +60,6 @@ const ConfirmBooking = () => {
           ghe: selectedSeats,
         };
         dispatch(createTicket(objectTicket));
-        dispatch({ type: RESET_SELECTED_SEAT });
       }
     });
   };

@@ -1,8 +1,10 @@
 import React from "react";
 import { Modal } from "antd";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { RESET_SELECTED_SEAT } from "../../../../redux/constant/booking/bookingConstants";
 
 const Ticket = ({ open, setOpen }) => {
+  const dispatch = useDispatch();
   const { selectedSeats, phim, heThongRap, cumRap, ngay, gio } = useSelector(
     (state) => state.bookingReducer
   );
@@ -32,8 +34,15 @@ const Ticket = ({ open, setOpen }) => {
       <Modal
         centered
         open={open}
-        onOk={() => setOpen(false)}
-        onCancel={() => setOpen(false)}
+        onOk={() => {
+          dispatch({ type: RESET_SELECTED_SEAT });
+          setOpen(false);
+        }}
+        onCancel={() => {
+          dispatch({ type: RESET_SELECTED_SEAT });
+
+          setOpen(false);
+        }}
         width={1000}
         className=" bg-transparent"
       >
