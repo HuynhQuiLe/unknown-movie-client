@@ -29,24 +29,28 @@ const User = () => {
 
   const renderInforUser = () => {
     return (
-      <div
-        className="account ml-7 flex items-center cursor-pointer relative"
-        onClick={() => setShowSubMenu(!showSubMenu)}
-      >
-        <img
-          src={user.hinhAnh}
-          alt="user"
-          className="w-[40px] h-[40px] border border-1 rounded-full object-cover "
-        />
+      <>
+        <div
+          className="account ml-7 flex items-center cursor-pointer relative"
+          onClick={() => setShowSubMenu(!showSubMenu)}
+        >
+          <img
+            src={user.hinhAnh}
+            alt="user"
+            className="w-[40px] h-[40px] border border-1 rounded-full object-cover "
+          />
 
-        <p className={pathname.includes("movies") ? "ml-2 text-white" : "ml-2"}>
-          {user.ten}
-        </p>
-        <FaAngleDown
-          className={pathname.includes("movies") ? "ml-1 text-white" : "ml-1"}
-        ></FaAngleDown>
+          <p
+            className={pathname.includes("movies") ? "ml-2 text-white" : "ml-2"}
+          >
+            {user.ten}
+          </p>
+          <FaAngleDown
+            className={pathname.includes("movies") ? "ml-1 text-white" : "ml-1"}
+          ></FaAngleDown>
+        </div>
         {showSubMenu && <SubMenu />}
-      </div>
+      </>
     );
   };
 

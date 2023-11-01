@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/action/user/logoutAction";
 import { useLocation } from "react-router-dom";
@@ -7,8 +7,11 @@ import {
   userLocalStorage,
   moviesByTheaterLocalStorage,
 } from "../../service/localService";
+import ConfirmLogOut from "./ConfirmLogOut/ConfirmLogOut";
 
 const SubMenu = () => {
+  const [open, setOpen] = useState(false);
+
   const { pathname } = useLocation();
   const { tickets } = useSelector((state) => state.getAllTicketsByUserReducer);
   const bigData = moviesByTheaterLocalStorage.get();
@@ -18,6 +21,10 @@ const SubMenu = () => {
 
   const logoutAccount = () => {
     dispatch(logout());
+  };
+
+  const showModal = () => {
+    setOpen(true);
   };
 
   useEffect(() => {
@@ -163,7 +170,8 @@ const SubMenu = () => {
               </li>
               <li
                 className="py-2 text-hover-effect cursor-pointer"
-                onClick={logoutAccount}
+                // onClick={logoutAccount}
+                onClick={showModal}
               >
                 Đăng xuất
               </li>
@@ -214,6 +222,11 @@ const SubMenu = () => {
           </div>
         </div>
       </div>
+      <ConfirmLogOut
+        open={open}
+        setOpen={setOpen}
+        logoutAccount={logoutAccount}
+      />
     </div>
   );
 };

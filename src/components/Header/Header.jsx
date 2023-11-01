@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
 import ScrollIndicator from "../ScrollIndicator/ScrollIndicator";
 import User from "./User/User";
 import Search from "./Search/Search";
 
 const Header = () => {
-  const { user } = useSelector((state) => state.loginReducer);
   const [showSearch, setShowSearch] = useState(false);
 
-  useEffect(() => {}, [user]);
   return (
     <header
       className="h-[50px] w-[100vw]  text-[14px]  text-primary-text fixed top-0 left-0 bg-bg-color-header z-[1]"
