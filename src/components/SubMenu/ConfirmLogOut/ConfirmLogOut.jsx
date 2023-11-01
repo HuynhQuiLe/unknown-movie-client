@@ -8,7 +8,7 @@ const ConfirmLogOut = ({ open, setOpen, logoutAccount }) => {
         Bạn chắc chắn muốn{" "}
         <span className="text-red-600 font-bold">đăng xuất</span>?
       </p>
-      <p>
+      <p className=" italic text-gray-500">
         Thao tác tiếp theo sẽ làm <b>load lại trang</b>!
       </p>
     </div>
