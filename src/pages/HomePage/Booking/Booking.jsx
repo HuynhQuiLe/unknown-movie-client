@@ -3,6 +3,7 @@ import { Tabs } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { getMovieByTheater } from "../../../redux/action/theater/getMoviesByTheaterAction";
 import moment from "moment";
+import "./customBooking.css";
 import {
   setCumRap,
   setHeThongRap,

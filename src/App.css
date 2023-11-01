@@ -370,8 +370,3 @@ footer a.text-blue {
   width: 100%;
   justify-content: space-between;
 }
-
-.booking .ant-tabs > .ant-tabs-nav .ant-tabs-nav-list,
-.booking .ant-tabs > div > .ant-tabs-nav .ant-tabs-nav-list {
-  justify-content: flex-start;
-}
