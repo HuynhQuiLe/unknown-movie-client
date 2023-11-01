@@ -1,0 +1,11 @@
+.truncate {
+  text-overflow: ellipsis;
+
+  /* Needed to make it work */
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.no-scroll-bar::-webkit-scrollbar {
+  display: none;
+}

@@ -1,5 +1,5 @@
-// const BASE_URL = "http://localhost:6868/";
-const BASE_URL = "https://unknown-movie.adaptable.app/";
+// export const BASE_URL = "http://localhost:6868/";
+export const BASE_URL = "https://unknown-movie.adaptable.app/";
 
 export const USER_BASE_URL = `${BASE_URL}users`;
 

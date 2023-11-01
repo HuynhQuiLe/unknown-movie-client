@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import ScrollIndicator from "../ScrollIndicator/ScrollIndicator";
 import User from "./User/User";
+import Search from "./Search/Search";
 
 const Header = () => {
   const { user } = useSelector((state) => state.loginReducer);
+  const [showSearch, setShowSearch] = useState(false);
 
   useEffect(() => {}, [user]);
   return (
@@ -34,7 +36,10 @@ const Header = () => {
             <a href="#">Hỗ trợ</a>
           </div>
           <div className="w-[20%] flex items-center justify-end">
-            <div className="search">
+            <div
+              className="search cursor-pointer"
+              onClick={() => setShowSearch(!showSearch)}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="15px"
@@ -48,6 +53,7 @@ const Header = () => {
           </div>
         </div>
       </div>
+      <Search showSearch={showSearch} />
     </header>
   );
 };
